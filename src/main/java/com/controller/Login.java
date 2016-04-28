@@ -50,7 +50,7 @@ public class Login extends HttpServlet{
         String pwd = req.getParameter("password");
         String rememberMe = req.getParameter("rememberMe");
         System.out.println("User: "+name+" | password: "+pwd);
-        if(name.equals("abhinav") && pwd.equals("passw0rd")) {
+        if(name.equals("Anton") && pwd.equals("passw0rd")) {
             HttpSession session=req.getSession();
             session.setAttribute("user", name);
             Cookie ck1 = new Cookie("user", name);
