@@ -1,7 +1,7 @@
 package com.controller;
 
-import com.dao.CategoriesDao;
-import com.entity.Category;
+import com.dao.ContactCategoriesDao;
+import com.entity.ContactCategory;
 import com.entity.Greeting;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,7 +22,7 @@ public class GreetingController {
         private final AtomicLong counter = new AtomicLong();
 
         @Autowired
-        CategoriesDao categoriesDao;
+        ContactCategoriesDao contactCategoriesDao;
 
         @RequestMapping("/greeting")
         public Greeting greeting(@RequestParam(value="name", defaultValue="World") String name) {
@@ -30,10 +30,17 @@ public class GreetingController {
                     String.format(template, name));
         }
 
-        @RequestMapping("/categories")
-        public List<Category> getCategories() {
-                List<Category> result = categoriesDao.getCategories();
+        @RequestMapping("/categor")
+        public List<ContactCategory> getCategories() {
+                List<ContactCategory> result = contactCategoriesDao.getContactCategories();
                 return result;
         }
+
+        /*@RequestMapping("/jsp")
+        public String getPage(Map<String, Object> model){
+                model.put("time", new Date());
+                model.put("message", "JSP Hello!");
+                return "jsp";
+        }*/
 
 }
