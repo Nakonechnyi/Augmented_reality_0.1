@@ -38,6 +38,7 @@ public class GreetingController {
 
         /*@RequestMapping("/jsp")
         public String getPage(Map<String, Object> model){
+                System.out.println("PageController");
                 model.put("time", new Date());
                 model.put("message", "JSP Hello!");
                 return "jsp";
